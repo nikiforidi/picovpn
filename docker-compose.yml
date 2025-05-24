@@ -1,0 +1,22 @@
+services:
+  api:
+    image: "ghcr.io/anatolio-deb/picovpn-api:latest"
+    container_name: "api"
+    hostname: "api"
+    command: /code/api
+    expose:
+      - 3000
+  app:
+    image: ghcr.io/anatolio-deb/picovpn-app:latest
+    container_name: "app"
+    hostname: "app"
+    volumes:
+      - /etc/letsencrypt/live/picovpn.ru/fullchain.pem:/etc/letsencrypt/live/picovpn.ru/fullchain.pem:ro
+      - /etc/letsencrypt/live/picovpn.ru/privkey.pem:/etc/letsencrypt/live/picovpn.ru/privkey.pem:ro
+    ports:
+      - 80:80
+      - 443:443
+    command: nginx -g 'daemon off;'
+    depends_on:
+      - api
+  

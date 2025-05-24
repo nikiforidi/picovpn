@@ -1,13 +1,13 @@
 services:
   api:
-    image: "ghcr.io/anatolio-deb/picovpn-api:latest"
+    image: "ghcr.io/anatolio-deb/picovpn-api:release"
     container_name: "api"
     hostname: "api"
     command: /code/api
     expose:
       - 3000
   app:
-    image: ghcr.io/anatolio-deb/picovpn-app:latest
+    image: ghcr.io/anatolio-deb/picovpn-app:release
     container_name: "app"
     hostname: "app"
     volumes:

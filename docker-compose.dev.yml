@@ -4,9 +4,8 @@ services:
     container_name: "api"
     hostname: "api"
     command: /code/api
-    expose:
-      ports:
-        - 8080 : 8080
+    ports:
+      - 8080 : 8080
   app:
     image: ghcr.io/anatolio-deb/picovpn-app:release
     container_name: "app"

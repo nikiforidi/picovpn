@@ -1,6 +1,6 @@
 services:
   api:
-    image: "ghcr.io/anatolio-deb/picovpn-api:release"
+    image: "ghcr.io/nikiforidi/picovpn-api:release"
     container_name: "api"
     hostname: "api"
     command: /code/api
@@ -11,7 +11,7 @@ services:
       - /etc/letsencrypt/live/picovpn.ru/privkey.pem:/etc/letsencrypt/live/picovpn.ru/privkey.pem:ro
 
   app:
-    image: ghcr.io/anatolio-deb/picovpn-app:release
+    image: ghcr.io/nikiforidi/picovpn-app:release
     container_name: "app"
     hostname: "app"
     ports:

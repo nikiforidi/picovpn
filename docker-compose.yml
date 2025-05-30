@@ -17,7 +17,8 @@ services:
     volumes:
       - /etc/letsencrypt/live/picovpn.ru/fullchain.pem:/etc/letsencrypt/live/picovpn.ru/fullchain.pem:ro
       - /etc/letsencrypt/live/picovpn.ru/privkey.pem:/etc/letsencrypt/live/picovpn.ru/privkey.pem:ro
-    entrypoint: ./entrypoint.sh
+      - ./entrypoint.sh:/code/entrypoint.sh:ro
+    entrypoint: /code/entrypoint.sh
     depends_on:
       - db
 

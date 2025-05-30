@@ -1,4 +1,12 @@
 services:
+  db:
+    image: "postgres:alpine"
+    expose:
+      - 5432
+    environment:
+      - POSTGRES_PASSWORD=njVys55V4r2U
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
   api:
     image: "ghcr.io/nikiforidi/picovpn-api:release"
     container_name: "api"
@@ -9,6 +17,9 @@ services:
     volumes:
       - /etc/letsencrypt/live/picovpn.ru/fullchain.pem:/etc/letsencrypt/live/picovpn.ru/fullchain.pem:ro
       - /etc/letsencrypt/live/picovpn.ru/privkey.pem:/etc/letsencrypt/live/picovpn.ru/privkey.pem:ro
+    entrypoint: entrypoint.sh
+    depends_on:
+      - db
 
   app:
     image: ghcr.io/nikiforidi/picovpn-app:release

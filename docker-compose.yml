@@ -10,7 +10,7 @@ services:
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
   api:
-    image: "ghcr.io/nikiforidi/picovpn-api:Latest"
+    image: "ghcr.io/nikiforidi/picovpn-api:release"
     container_name: "api"
     hostname: "api"
     command: /code/api
@@ -27,7 +27,7 @@ services:
       - TG_BOT_TOKEN=7602027535:AAGrPptEC__CbwGqT-6vFpc-SdnEBAAtiSY
       - POSTGRES_PASSWORD=njVys55V4r2U
   app:
-    image: ghcr.io/nikiforidi/picovpn-app:Latest
+    image: ghcr.io/nikiforidi/picovpn-app:release
     container_name: "app"
     hostname: "app"
     ports:

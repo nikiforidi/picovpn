@@ -24,7 +24,7 @@ services:
     depends_on:
       - db
     environment:
-      - TG_BOT_TOKEN=7602027535:AAGrPptEC__CbwGqT-6vFpc-SdnEBAAtiSY
+      - TELEGRAM_BOT_TOKEN=7602027535:AAGrPptEC__CbwGqT-6vFpc-SdnEBAAtiSY
       - POSTGRES_PASSWORD=njVys55V4r2U
   app:
     image: ghcr.io/nikiforidi/picovpn-app:release

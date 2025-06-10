@@ -14,8 +14,8 @@ services:
     container_name: "api"
     hostname: "api"
     command: /code/api
-    ports:
-      - 8080:8080
+    expose:
+      - 8080
     volumes:
       - /etc/letsencrypt/live/picovpn.ru/fullchain.pem:/etc/letsencrypt/live/picovpn.ru/fullchain.pem:ro
       - /etc/letsencrypt/live/picovpn.ru/privkey.pem:/etc/letsencrypt/live/picovpn.ru/privkey.pem:ro

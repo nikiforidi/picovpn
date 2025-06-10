@@ -1,24 +1,25 @@
+version: "3.8"
+
 services:
   db:
-    image: "postgres:alpine"
-    container_name: "db"
-    hostname: "db"
+    image: postgres:alpine
+    container_name: db
+    hostname: db
     expose:
       - 5432
     environment:
       - POSTGRES_PASSWORD=njVys55V4r2U
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
+
   api:
-    image: "ghcr.io/nikiforidi/picovpn-api:release"
-    container_name: "api"
-    hostname: "api"
+    image: ghcr.io/nikiforidi/picovpn-api:release
+    container_name: api
+    hostname: api
     command: /code/api
     expose:
       - 8000
     volumes:
-    #   - /etc/letsencrypt/live/picovpn.ru/fullchain.pem:/etc/letsencrypt/live/picovpn.ru/fullchain.pem:ro
-    #   - /etc/letsencrypt/live/picovpn.ru/privkey.pem:/etc/letsencrypt/live/picovpn.ru/privkey.pem:ro
       - ./entrypoint.sh:/code/entrypoint.sh:ro
     entrypoint: /code/entrypoint.sh
     depends_on:
@@ -26,19 +27,21 @@ services:
     environment:
       - TELEGRAM_BOT_TOKEN=7602027535:AAGrPptEC__CbwGqT-6vFpc-SdnEBAAtiSY
       - POSTGRES_PASSWORD=njVys55V4r2U
+
   app:
     image: ghcr.io/nikiforidi/picovpn-app:release
-    container_name: "app"
-    hostname: "app"
+    container_name: app
+    hostname: app
     expose:
       - 3000
     depends_on:
       - api
     command: ["serve", "-s", "dist"]
+
   proxy:
     image: nginx:alpine
-    container_name: "proxy"
-    hostname: "proxy"
+    container_name: proxy
+    hostname: proxy
     ports:
       - "80:80"
       - "443:443"

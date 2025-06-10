@@ -15,7 +15,7 @@ services:
     hostname: "api"
     command: /code/api
     expose:
-      - 8080
+      - 8000
     volumes:
     #   - /etc/letsencrypt/live/picovpn.ru/fullchain.pem:/etc/letsencrypt/live/picovpn.ru/fullchain.pem:ro
     #   - /etc/letsencrypt/live/picovpn.ru/privkey.pem:/etc/letsencrypt/live/picovpn.ru/privkey.pem:ro

@@ -16,7 +16,7 @@ services:
     command: /code/api
     expose:
       - 8080
-    # volumes:
+    volumes:
     #   - /etc/letsencrypt/live/picovpn.ru/fullchain.pem:/etc/letsencrypt/live/picovpn.ru/fullchain.pem:ro
     #   - /etc/letsencrypt/live/picovpn.ru/privkey.pem:/etc/letsencrypt/live/picovpn.ru/privkey.pem:ro
       - ./entrypoint.sh:/code/entrypoint.sh:ro

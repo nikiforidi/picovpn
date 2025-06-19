@@ -60,7 +60,7 @@ services:
     expose:
       - 5000
     volumes:
-      - /etc/ocserv/passwd:/etc/ocserv/passwd:ro
+      - /etc/ocserv/passwd:/etc/ocserv/passwd:rw
     depends_on:
       - api
     command: /code/daemon

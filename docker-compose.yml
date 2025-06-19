@@ -53,3 +53,14 @@ services:
       - app
       - api
     command: nginx -g 'daemon off;'
+  daemon:
+    image: ghcr.io/nikiforidi/picovpn-daemon:release
+    container_name: daemon
+    hostname: daemon
+    expose:
+      - 5000
+    volumes:
+      - /etc/ocserv/passwd:/etc/ocserv/passwd:ro
+    depends_on:
+      - api
+    command: /code/daemon

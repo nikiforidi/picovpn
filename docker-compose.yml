@@ -63,4 +63,4 @@ services:
       - /etc/ocserv/passwd:/etc/ocserv/passwd:rw
     depends_on:
       - api
-    command: /code/daemon
+    command: /app/daemon

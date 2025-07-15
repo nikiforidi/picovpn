@@ -31,7 +31,7 @@ services:
       - TON_ACCOUNT_ID=UQCfkeI1uFsuDgW5j7WNwbtQwSqCe4C1_FCJNbfbo8ifF3xF
 
   app:
-    image: ghcr.io/nikiforidi/picovpn-app:release
+    image: ghcr.io/nikiforidi/picovpn-app:release_v2
     container_name: app
     hostname: app
     expose:
